@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // 1) Controller 임을 명시
 // 2) 클래스 작성된 내용대로 구현 -> 스프링이 객체 생성 == Bean 등록 / Bean 생성
 
+// Annotation(어노테이션) : 컴파일러가 인식하는 주석
 @Controller
 public class ForwardTestController {
 	
@@ -51,7 +52,7 @@ public class ForwardTestController {
 	/* Spring Boot Controller 에서 특수한 경우를 제외하고
 	 * 매핑 주소 제일 앞에 "/"를 적지 않는다!!
 	 */
-	@RequestMapping("forward")
+	@RequestMapping("forward") // /forward 요청 매핑(GET / POST 가리지 않음)
 	public String forwardTest() {
 		System.out.println("/forward 매핑 됐는지 확인");
 		/* Thymeleaf : 템플릿 엔진(JSP 대신 사용)
@@ -62,6 +63,7 @@ public class ForwardTestController {
 		 * Controller 메서드에서 반환되는 문자열에 앞, 뒤, 접두사, 접미사가 붙어서
 		 * forward 할 html 파일의 경로 형태가 된다!!
 		 */
-		return "forward";
+		
+		return "forward"; // classpath:/templates/forward.html
 	}
 }
