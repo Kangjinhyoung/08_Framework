@@ -56,6 +56,7 @@ public class DBConfig {
 		
 		return dataSource;
 	}
+	// SqlSession : DB연결 + SQL 파일 위치 등록 + 마이 바티스 설정 적용 + 클래스 별칭 등록
 	
 	// SqlSessionFactory : SqlSession을 만드는 객체
 	@Bean
@@ -89,6 +90,7 @@ public class DBConfig {
 		return new SqlSessionTemplate(sessionFactory);
 		
 	}
+	
 	// DataSourceTransactionManager : 트랜잭션 매니저
 	@Bean
 	public DataSourceTransactionManager dataSourceTransactionManager(DataSource dataSource) {
