@@ -213,7 +213,7 @@ public class UserController {
 		
 		if(result > 0) {
 			path = "redirect:/user/selectAll";
-			message = user.getUserName() + "님이 추가되었습니다";
+			message = user.getUserId() + "님이 추가되었습니다";
 		}
 		
 		else {
@@ -222,7 +222,7 @@ public class UserController {
 		}
 		
 		ra.addFlashAttribute("message", message);
-		return "redirect:/user/selectAll";
+		return path;
 		
 	}
 }

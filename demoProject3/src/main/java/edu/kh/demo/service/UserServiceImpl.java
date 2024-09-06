@@ -58,12 +58,14 @@ public class UserServiceImpl implements UserService{
 	}
 
 	/* 삭제하기 */
+	@Transactional
 	@Override
 	public int deleteUser(int userNo) {
 		
 		return mapper.deleteUser(userNo);
 	}
 	
+	@Transactional
 	@Override
 	public int insertUser(UserDto user) {
 		
