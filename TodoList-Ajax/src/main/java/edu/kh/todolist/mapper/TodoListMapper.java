@@ -48,6 +48,20 @@ public interface TodoListMapper {
 	 * @return result
 	 */
 	int todoDelete(int todoNo);
+
+	String searchTitle(int todoNo);
+
+	/**
+	 * 전체 할 일 개수 조회
+	 * @return
+	 */
+	int getTotalCount();
+
+	/**
+	 * 완료된 할 일 개수 조회
+	 * @return
+	 */
+	int getCompleteCount();
 	
 	
 	
