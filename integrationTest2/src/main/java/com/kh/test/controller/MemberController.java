@@ -22,6 +22,7 @@ public class MemberController {
 	@ResponseBody
 	@GetMapping("selectAllList")
 	public List<Member> selectAllList() {
+		
 		return service.selectAllList();
 	}
 	

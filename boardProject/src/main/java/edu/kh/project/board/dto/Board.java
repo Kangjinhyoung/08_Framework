@@ -1,5 +1,7 @@
 package edu.kh.project.board.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,7 +31,7 @@ public class Board {
 	private String boardUpdateDate;
 	private int    readCount;
 	private String boardDelFl;
-	private int    memebrNo;
+	private int    memberNo;
 	private int    boardCode;
 	
 	// MEMBER 테이블 Join 컬럼
@@ -40,5 +42,20 @@ public class Board {
 	private int likeCount;
 	
 	// ------------------------------------------------------------------------------
+	
+	//------------------------------
+	// (추가 작성 예정)
+	
+	private String thumbnail; // 썸네일 이미지
+	private String profileImg; // 작성자 프로필 이미지
+	
+	// 특정 게시글의 이미지 목록을 저장할 필드
+	private List<BoardImg> imageList;
+	
+	// 특정 게시글의 댓글 목록을 저장할 필드
+	private List<Comment> commentList;
+	
+	// 좋아요 체크 여부를 저장할 필드(1 == 누른적 있음)
+	private int likeCheck;
 	
 }
