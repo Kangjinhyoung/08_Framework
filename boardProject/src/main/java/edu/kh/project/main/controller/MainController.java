@@ -31,6 +31,7 @@ public class MainController {
 		// 접두사 : classpath:/templates/
 		// 접미사 : .html
 		// -> forward 하려는 파일의 Thymeleaf 접두사, 접미사를 제외한 경로 작성
+//		return "redirect:http://naver.com";
 		return "common/main";
 	}
 	
