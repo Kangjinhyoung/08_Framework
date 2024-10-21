@@ -9,9 +9,9 @@ import edu.kh.project.common.scheduling.service.SchedulingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
 import java.io.File;
 
 @Component // bean 등록
@@ -30,7 +30,8 @@ public class ImageDeleteScheduling {
 
 
   // 0초 시작, 20초가 지날 때 마다 수행 (0, 20, 40초 동작)
-  @Scheduled(cron = "0/20 * * * * *")
+  // @Scheduled(cron = "0/20 * * * * *")
+  @Scheduled(cron = "0 0 * * * *") // 정각마다 수행
   public void imageDelete(){
 
     // 1. DB에 저장되어있는 파일명 모두 조회
@@ -59,6 +60,22 @@ public class ImageDeleteScheduling {
     List<File> serverList = new ArrayList<>();
     serverList.addAll(profileList);
     serverList.addAll(boardList);
+
+    // 3. dbFileNameList와 serverList의 파일명 비교
+    // -> serverList에는 존재하는데
+    //    dbFileNameList에 없으면 
+    //    서버에 저장된 이미지 삭제
+    for(File serverFile : serverList){
+
+      // 서버 파일명이 DB 파일 목록에 없을 경우
+      if( !dbFileNameList.contains(serverFile.getName())){
+
+        log.info("{} 삭제", serverFile.getName());
+        serverFile.delete(); // 파일 삭제
+      }   
+    }
+
+    log.info("----------- 이미지 삭제 스케쥴러 종료 -----------");
   }
 
 }

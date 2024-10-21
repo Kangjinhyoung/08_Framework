@@ -15,6 +15,7 @@ public class SchedulingServiceImpl implements SchedulingService{
 	
 	private final SchedulingMapper mapper;
 
+	// DB에 기록된 모든 파일 조회
 	@Override
 	public List<String> getDbFileNameList() {
 
